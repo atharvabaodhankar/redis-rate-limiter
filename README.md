@@ -10,6 +10,10 @@ A high-performance, lightweight, and scalable API rate limiting solution built w
 ![Redis](https://img.shields.io/badge/redis-7.0-red.svg)
 ![Docker](https://img.shields.io/badge/docker-ready-blue.svg)
 
+**🔗 Links:**
+- **GitHub Repository**: [https://github.com/atharvabaodhankar/redis-rate-limiter](https://github.com/atharvabaodhankar/redis-rate-limiter)
+- **Docker Hub**: [baodhankaratharva/redis-rate-limiter-api](https://hub.docker.com/repository/docker/baodhankaratharva/redis-rate-limiter-api)
+
 ## ✨ Features
 
 - **High Performance**: Built with FastAPI for lightning-fast API responses
@@ -47,7 +51,7 @@ The system follows a simple yet effective architecture:
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/atharvabaodhankar/redis-rate-limiter.git
    cd redis-rate-limiter
    ```
 
@@ -60,6 +64,19 @@ The system follows a simple yet effective architecture:
    ```bash
    curl -H "X-API-Key: test-key" http://localhost:8000/
    ```
+
+### Using Pre-built Docker Image
+
+You can also use the pre-built Docker image from Docker Hub:
+
+```bash
+# Pull the image
+docker pull baodhankaratharva/redis-rate-limiter-api
+
+# Run with Redis
+docker run -d --name redis redis:7
+docker run -d -p 8000:8000 --link redis:redis baodhankaratharva/redis-rate-limiter-api
+```
 
 ### Local Development
 
