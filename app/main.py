@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, HTTPException, Response
-from limiter import check_rate_limit
+from .limiter import check_rate_limit
 
 app = FastAPI()
 
