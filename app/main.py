@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, HTTPException
-from limiter import is_allowed
+from .limiter import is_allowed
 
 app = FastAPI()
 
