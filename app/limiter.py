@@ -1,9 +1,13 @@
 import redis
 
-r = redis.Redis(host="localhost", port=6379, decode_responses=True)
+r = redis.Redis(
+    host="redis",   # docker service name
+    port=6379,
+    decode_responses=True
+)
 
 RATE_LIMIT = 5
-WINDOW = 10  # seconds
+WINDOW = 10
 
 
 def is_allowed(client_id: str):
@@ -14,7 +18,4 @@ def is_allowed(client_id: str):
     if current == 1:
         r.expire(key, WINDOW)
 
-    if current > RATE_LIMIT:
-        return False
-
-    return True
+    return current <= RATE_LIMIT
